@@ -25,16 +25,16 @@ let weather={
         
     },
     search: function () {
-        this.fetchweather(document.querySelector(".search-bar").value)
+        var letters = /^[A-Za-z]+$/;
+        let x=document.querySelector(".search-bar").value
+        if(x.match(letters)){
+        this.fetchweather(x)}
+        else{
+            alert("Invalid")
+        }
     },
 };  
-function validate()
-{
-    if(document.querySelector(".search-bar").value==""){
-        alert("Please enter a city");
-        return false;
-    }
-}
+
 document.querySelector(".search button").addEventListener("click",function () {
     weather.search();
 });
