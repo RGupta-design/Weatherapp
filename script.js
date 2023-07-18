@@ -1,8 +1,9 @@
+let mykey=keys.key1;
 let weather={
-    "apiKey":"32c8de74de4e8a90b8b0bc310a424ccb",
+    "apiKey": mykey,
     fetchweather: function(city){
         fetch(
-            "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=32c8de74de4e8a90b8b0bc310a424ccb"
+            "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid="+mykey
         )
         .then((response) => response.json())
         .then((data) => this.displayweather(data));
@@ -27,7 +28,13 @@ let weather={
         this.fetchweather(document.querySelector(".search-bar").value)
     },
 };  
-
+function validate()
+{
+    if(document.querySelector(".search-bar").value==""){
+        alert("Please enter a city");
+        return false;
+    }
+}
 document.querySelector(".search button").addEventListener("click",function () {
     weather.search();
 });
