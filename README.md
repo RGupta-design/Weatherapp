@@ -1,5 +1,5 @@
 # Weather App
-
+Simple website made using HTML5, CSS and JavaScript to display weather details of any country searched.
 
 # Important
 
